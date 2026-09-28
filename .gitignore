@@ -1,4 +1,5 @@
 .env
 .venv/
-example.md
+example_json.md
 db/
+output/
