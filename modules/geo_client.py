@@ -5,10 +5,10 @@ def define_geolocation(geo_url, fallback_city, fallback_loc_longitude, fallback_
     try:
         url_geolocation = (f'{geo_url}/json/')
         res = requests.get(url_geolocation)
-        status = res.status_code
+        code = res.status_code
 
         # errors
-        if status == 429:
+        if code == 429:
             raise ValueError("Request limit exceeded")
         
         data = res.json()
@@ -24,5 +24,5 @@ def define_geolocation(geo_url, fallback_city, fallback_loc_longitude, fallback_
         return city, loc_longitude, loc_latitude
 
     except Exception as error:
-        print(f"Error: {error}")
+        print(f"Geolocation error: {error}")
         return fallback_city, fallback_loc_longitude, fallback_loc_latitude
