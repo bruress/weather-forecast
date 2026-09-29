@@ -64,5 +64,5 @@ def insert_table(session, city, forecast_dates, mins_temps, maxs_temps, avrs_hum
         raise
 
 
-def read_table(session):
-    return session.scalars(select(WeatherForecast)).all()
+def read_table(session, city, forecast_dates):
+    return session.scalars(select(WeatherForecast).where(WeatherForecast.city == city, WeatherForecast.forecast_date.in_(forecast_dates))).all()
