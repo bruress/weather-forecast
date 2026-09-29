@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 import os
 
 # load .env
+root = os.path.join(os.path.dirname(__file__), "..")
+load_dotenv(os.path.join(root, ".env"))
 api_key = os.getenv("API_KEY")
 geo_url = os.getenv("GEO_URL")
 weather_url = os.getenv("WEATHER_URL")

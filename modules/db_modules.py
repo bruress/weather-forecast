@@ -57,7 +57,6 @@ def insert_table(session, city, forecast_dates, mins_temps, maxs_temps, avrs_hum
                 session.add(insert_stmt)
 
         session.commit()
-        return insert_stmt
     
     except Exception: 
         session.rollback()

@@ -1,7 +1,7 @@
 import requests
 from datetime import date, timedelta, datetime, timezone
 
-def define_weather (weather_url, loc_latitude, loc_longitude, api_key): 
+def define_weather (api_key, weather_url, loc_latitude, loc_longitude): 
 
     try: 
         url_weather = (f'{weather_url}/data/2.5/forecast?lat={loc_latitude}&lon={loc_longitude}&appid={api_key}&units=metric&lang=ru')
@@ -36,7 +36,7 @@ def define_weather (weather_url, loc_latitude, loc_longitude, api_key):
 
 
         for item in data["list"]:
-            dates.append(datetime.fromisoformat(item["dt_txt"][:10]))
+            dates.append(date.fromisoformat(item["dt_txt"][:10]))
             min_temps.append(item["main"]["temp_min"])
             max_temps.append(item["main"]["temp_max"])
             hums.append(item["main"]["humidity"])

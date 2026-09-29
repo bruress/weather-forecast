@@ -1,6 +1,6 @@
 import os
 
-def wirte_md(output_path, rows):
+def write_md(output_path, rows):
     if not rows: 
         raise ValueError("No data")
     
